@@ -10,21 +10,21 @@ Post.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
+      references: {
+        model: 'user',
+        key: 'id',
+      }
     },
     title: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     post: {
       type: DataTypes.STRING,
     },
-    user: {
+    username: {
       type: DataTypes.STRING,
-      allowNull: false,
-      references: {
-        model: 'user',
-        key: 'username',
-      },
+      allowNull: false
     },
     date_created: {
       type: DataTypes.DATE,
@@ -37,7 +37,7 @@ Post.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'post',
+    modelName: 'post'
   }
 );
 
