@@ -1,24 +1,150 @@
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+header {
+  background-color: brown;
+  padding: 1rem 1rem 1rem 2rem;
 }
 
-.no-button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  color: #1b89bc;
+header a {
+  color: white;
   text-decoration: none;
-  font-size: 100%;
+  font-size: 24px;
+  padding-right: 3rem;
 }
 
-.no-button:hover {
-  color: #065b83;
-  text-decoration: underline;
+body {
+  margin: 0;
 }
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
+.post {
+  width: 95%;
+  margin: 1rem auto;
+  border: 3px solid brown;
+  border-radius: 5px;
+}
+
+.post p {
+  padding: 0 1rem;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  background-color: brown;
+  color: lightgrey;
+}
+
+.post-header h2 {
+  margin: 12px;
+}
+
+#logout {
+  color: white;
+  background-color: brown;
+  outline: none;
+  border: none;
+  font-size: 24px;
+}
+
+.page-header {
+  background-color: brown;
+  display: flex;
+  align-items: center;
+}
+
+.page-header h2 {
+  color: brown;
+  padding: 1rem;
+  margin: 0;
+}
+
+.header-card {
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 8px 8px lightgrey;
+  margin: 1rem 1rem 2rem 2rem;
+}
+
+.login {
+  width: 95%;
+  margin: 1rem auto;
+  padding-bottom: .5rem;
+  border: 3px solid brown;
+}
+
+.login a {
+  text-decoration: none;
+  color: black;
+  margin-left: .5rem;
+}
+
+.login-header {
+  background-color: brown;
+  color: white;
+  padding: .5rem;
+  margin-bottom: 12px;
+}
+
+.login-header h2 {
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  font-size: 20px;
+  margin: 0 .5rem .5rem .5rem;
+}
+
+.form-group input {
+  border: none;
+  background-color: lightgrey;
+  height: 30px;
+  padding-left: .5rem;
+}
+
+.submit {
+  border: none;
+  background-color: rgb(100, 100, 100);
+  color: white;
+  border-radius: 10px;
+  padding: .5rem 0;
+}
+
+.submit:hover {
+  cursor: pointer;
+}
+
+.signup {
+  width: 95%;
+  margin: 1rem auto;
+  padding-bottom: .5rem;
+  border: 3px solid brown;
+}
+
+.signup a {
+  text-decoration: none;
+  color: black;
+  margin-left: .5rem;
+}
+
+.signup-header {
+  background-color: brown;
+  color: white;
+  padding: .5rem;
+  margin-bottom: 12px;
+}
+
+.signup-header h2 {
+  margin: 0;
+}
+
+#logout:hover {
+  cursor: pointer;
 }
