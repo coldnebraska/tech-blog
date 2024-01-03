@@ -7,7 +7,6 @@ router.post('/', withAuth, async (req, res) => {
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] }
         });
-        console.log(req.session.user_id)
 
         const user = userData.get({ plain: true });
 
@@ -23,7 +22,6 @@ router.post('/', withAuth, async (req, res) => {
         res.status(200).json(newComment)
     } catch (err) {
         res.status(400).json(err)
-        console.log(err)
     }
 })
 

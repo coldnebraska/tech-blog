@@ -51,6 +51,14 @@ router.get('/viewpost/:id', async (req, res) => {
 
     const post = postData.get({ plain: true })
 
+    const commentData = await Comment.findAll({
+      where: {
+        post_id: req.params.id
+      }
+    })
+
+    const comments = commentData.map((comment) => comment.get({ plain: true }))
+
     let login_status
     if (req.session.user_id) {
       login_status = true
@@ -58,12 +66,12 @@ router.get('/viewpost/:id', async (req, res) => {
 
     res.render('viewpost', {
       post,
+      comments,
       logged_in: login_status,
       add_comment: false
     })
   } catch (err) {
     res.status(400).json(err)
-    console.log(err)
   }
 })
 
