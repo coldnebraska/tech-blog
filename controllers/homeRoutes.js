@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, User } = require('../models');
+const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -42,6 +42,28 @@ router.get('/dashboard', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get('/viewpost/:id', async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [{ model: Comment }]
+    })
+
+    const post = postData.get({ plain: true })
+    console.log(post)
+
+    const commentData = await Comment.findAll()
+    const comments = commentData.map((comment) => comment.get({ plain: true }))
+    console.log(comments)
+
+    res.render('viewpost', {
+      post
+    })
+  } catch (err) {
+    res.status(400).json(err)
+    console.log(err)
+  }
+})
 
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
