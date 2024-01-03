@@ -45,4 +45,44 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
+router.put('/', async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] }
+    })
+
+    const user = userData.get({ plain: true })
+    console.log(user)
+
+    Post.update(
+      {
+        ...req.body
+      },
+      {
+        where: {
+          id: req.body.id
+        }
+      }
+    )
+
+    document.location.replace('/dashboard')
+  } catch (err) {
+    res.status(400).json(err)
+  }
+})
+
+router.delete('/', (req, res) => {
+  try {
+    Post.destroy({
+      where: {
+        id: req.body.id
+      }
+    })
+
+    document.location.replace('/dashboard')
+  } catch (err) {
+    res.status(400).json(err)
+  }
+})
+
 module.exports = router;
