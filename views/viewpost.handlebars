@@ -7,7 +7,7 @@
 {{#if logged_in}}
 <button id="add-comment">Add comment</button>
 {{else}}
-<p>Please log in to add a comment</p>
+<p id="login-msg">Please log in to add a comment</p>
 {{/if}}
 
 <div class="home-post">
@@ -32,10 +32,9 @@
 
 {{#each comments as |comment|}}
 <div class="comment">
-    <div class="comment-header">
-        <h3>Posted by {{comment.username}} on {{format_date comment.date_created}}</h3>
-    </div>
+    <div class="comment-header"></div>
     <p>{{comment.comment}}</p>
+    <p>-{{comment.username}}, {{format_date comment.date_created}}</p>
 </div>
 {{/each}}
 
