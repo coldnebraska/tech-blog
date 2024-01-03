@@ -213,3 +213,7 @@ body {
 .update-post-header h2 {
   margin: 0;
 }
+
+#comment-form {
+  display: none;
+}

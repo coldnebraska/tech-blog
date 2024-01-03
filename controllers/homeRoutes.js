@@ -50,14 +50,16 @@ router.get('/viewpost/:id', async (req, res) => {
     })
 
     const post = postData.get({ plain: true })
-    console.log(post)
 
-    const commentData = await Comment.findAll()
-    const comments = commentData.map((comment) => comment.get({ plain: true }))
-    console.log(comments)
+    let login_status
+    if (req.session.user_id) {
+      login_status = true
+    }
 
     res.render('viewpost', {
-      post
+      post,
+      logged_in: login_status,
+      add_comment: false
     })
   } catch (err) {
     res.status(400).json(err)
