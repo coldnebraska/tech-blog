@@ -56,4 +56,21 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
+router.get('/createpost', (req, res) => {
+  res.render('newpost', {
+    logged_in: true
+  });
+});
+
+router.get('/updatepost/:id', async (req, res) => {
+  const postData = await Post.findByPk(req.params.id)
+
+  const post = postData.get({ plain: true })
+
+  res.render('updatepost', {
+    post,
+    logged_in: true
+  })
+})
+
 module.exports = router;
