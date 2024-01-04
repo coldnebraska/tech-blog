@@ -55,7 +55,7 @@ body {
 }
 
 .new-post {
-  margin-left: 2.5%;
+  margin: 1rem 0 0 2.5%;
   background-color: brown;
   color: lightgrey;
   border: none;
