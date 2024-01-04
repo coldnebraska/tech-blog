@@ -5,7 +5,7 @@ This project is a CMS-style blog site that is similar to a wordpress site and de
 
 ## Table of Contents
 [Screenshots](#screenshots)  
-[Live Application](#liveapplication)  
+[Live Application](#live-application)  
 [Usage](#usage)   
 [License](#license)  
 [Questions](#questions)  
